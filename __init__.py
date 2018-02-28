@@ -7,7 +7,7 @@ from aqt import mw
 from aqt.qt import *
 from aqt.utils import showInfo
 from itertools import chain
-from .importing import ImportDialog
+from .dummyimporting import ImportDialog
 
 class IMDbToAnki(QDialog):
     def __init__(self):
