@@ -54,7 +54,8 @@ class IMDbToAnki(QDialog):
         title = self.searchResults.currentItem().data(Qt.UserRole)
         departments = self.imdb.get_title_credits(title)['credits']
         enabledDeps = [ box.text() for box in self.depBoxes if box.checkState() ]
-        return list(chain.from_iterable([ departments[dep] for dep in enabledDeps ]))
+        nestedCredits = [ departments[dep] for dep in enabledDeps ]
+        return list(chain.from_iterable(nestedCredits))
 
     def createNotes(self):
         mw.progress.start(immediate=True)
